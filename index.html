@@ -3,30 +3,16 @@
 
 <head>
     <meta charset="utf-8">
-
-    <!--====== Title ======-->
     <title>Lim Thongchai - CV and Portfolio</title>
-
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--====== Favicon Icon ======-->
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
-
-    <!--====== Slick CSS ======-->
     <link rel="stylesheet" href="assets/css/animate.css">
-
-    <!--====== LineIcons CSS ======-->
     <link rel="stylesheet" href="assets/css/lineicons.css">
-
-    <!--====== Bootstrap CSS ======-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-
-    <!--====== Default CSS ======-->
     <link rel="stylesheet" href="assets/css/default.css">
-
-    <!--====== Style CSS ======-->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
     <script src="https://cdn.jsdelivr.net/npm/@unocss/runtime"></script>
     <script src="https://unpkg.com/vue@2.7.15/dist/vue.min.js"></script>
     <style>
@@ -43,11 +29,13 @@
 
         @media print {
             .page-break {
-                break-after: always;
-                /* for firefox */
-                page-break-after: always;
-                /* for webkit */
-                -webkit-column-break-after: always;
+                break-before: always;
+                page-break-before: always;
+                -webkit-column-break-before: always;
+            }
+
+            .noprint {
+                display: none;
             }
         }
     </style>
@@ -125,6 +113,32 @@
             cursor: pointer;
         }
     </style>
+    <style>
+        .timeline {
+            border-left: 1px solid hsl(0, 0%, 90%);
+            position: relative;
+            list-style: none;
+        }
+
+        .timeline .timeline-item {
+            position: relative;
+        }
+
+        .timeline .timeline-item:after {
+            position: absolute;
+            display: block;
+            top: 0;
+        }
+
+        .timeline .timeline-item:after {
+            background-color: hsl(0, 0%, 90%);
+            left: -38px;
+            border-radius: 50%;
+            height: 11px;
+            width: 11px;
+            content: "";
+        }
+    </style>
 </head>
 
 <body>
@@ -149,9 +163,9 @@
             </div>
         </div>
 
-        <section class="header_area">
+        <section class="header_area page-break">
             <div class="header_navbar">
-                <div class="container">
+                <div class="w-full px-8">
                     <div class="row">
                         <div class="col-lg-12">
                             <nav class="navbar navbar-expand-lg">
@@ -186,13 +200,17 @@
                                         <li class="nav-item">
                                             <a class="page-scroll" href="#work">Experience<span></span></a>
                                         </li>
+                                        <li class="nav-item">
+                                            <a class="page-scroll" @click.prevent="printx()" href="#print">MY
+                                                CV<span></span></a>
+                                        </li>
                                     </ul>
-                                </div> <!-- navbar collapse -->
-                            </nav> <!-- navbar -->
+                                </div>
+                            </nav>
                         </div>
-                    </div> <!-- row -->
-                </div> <!-- container -->
-            </div> <!-- header navbar -->
+                    </div>
+                </div>
+            </div>
 
             <div id="home" class="header_hero">
                 <ul class="header_social d-none d-lg-block">
@@ -240,289 +258,160 @@
                             </div> <!-- header hero image -->
                         </div>
                     </div> <!-- row -->
-                </div> <!-- container -->
+                </div>
                 <div class="header_hero_shape d-none d-lg-block"></div> <!-- header hero shape -->
-            </div> <!-- header hero -->
+            </div>
         </section>
 
-        <section id="about" class="about_area pt-70 pb-120 page-break">
-            <div class="container">
+        <section id="about" v-if="true" class="about_area pb-120 page-break">
+            <div class="container ">
                 <div class="row align-items-center justify-content-center">
-                    <div class="col-lg-6 col-md-9">
+                    <!-- <div class="w-3/10">
                         <div class="about_image mt-50 wow fadeInRightBig" data-wow-duration="1.3s"
                             data-wow-delay="0.5s">
-                            <img src="assets/images/about_hero.png" class="w-[250px] h-[700px]" alt="Hero">
+                            <img src="assets/images/about_hero1.png" class="w-[150px]" alt="Hero">
                             <div class="about_shape"></div>
-                        </div> <!-- about image -->
-                    </div>
-                    <div class="col-lg-6">
+                        </div>
+                    </div> -->
+                    <div class="w-7/10">
                         <div class="about_content mt-45 wow fadeInLeftBig" data-wow-duration="1.3s"
                             data-wow-delay="0.5s">
                             <div class="section_title">
-                                <h5 class="sub_title">About</h5>
+                                <h5 class="sub_title">skills</h5>
                                 <h3 class="main_title">Why You Hire Me?</h3>
                                 <ul class="line">
                                     <li></li>
                                     <li></li>
                                     <li></li>
                                 </ul>
-                            </div> <!-- section title -->
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                            </div>
+
+                            203/7 Ladplao Ladyao Jatujak Bkk 10900
+
+                            +66 0816477729
+
+                            limweb@hotmail.com
+
+                            https://twitter.com/limweb
+
+
+                            <!-- section title -->
+                            <!-- <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
                                 invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
                                 accusam
                                 et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus.
-                            </p>
+                            </p> -->
 
-                            <div class="about_skills pt-15">
+                            <!-- <div class="about_skills pt-15" v-for="(skil,idx) in skills">
                                 <div class="skill_item mt-20">
                                     <div class="skill_header">
-                                        <h6 class="skill_title">UI/UX Design</h6>
+                                        <h6 class="skill_title">{{skil.label}}</h6>
                                         <div class="skill_percentage">
-                                            <p><span class="counter">85</span>%</p>
+                                            <p><span class="counter">{{skil.percen}}</span>%</p>
                                         </div>
                                     </div>
                                     <div class="skill_bar">
                                         <div class="bar_inner">
-                                            <div class="bar progress_line" data-width="85"></div>
+                                            <div class="bar progress_line" :data-width="skil.percen"></div>
                                         </div>
                                     </div>
-                                </div> <!-- skill item -->
-                                <div class="skill_item mt-20">
-                                    <div class="skill_header">
-                                        <h6 class="skill_title">Web Design</h6>
-                                        <div class="skill_percentage">
-                                            <p><span class="counter">75</span>%</p>
-                                        </div>
-                                    </div>
-                                    <div class="skill_bar">
-                                        <div class="bar_inner">
-                                            <div class="bar progress_line" data-width="75"></div>
-                                        </div>
-                                    </div>
-                                </div> <!-- skill item -->
-                                <div class="skill_item mt-20">
-                                    <div class="skill_header">
-                                        <h6 class="skill_title">HTML/CSS</h6>
-                                        <div class="skill_percentage">
-                                            <p><span class="counter">90</span>%</p>
-                                        </div>
-                                    </div>
-                                    <div class="skill_bar">
-                                        <div class="bar_inner">
-                                            <div class="bar progress_line" data-width="90"></div>
-                                        </div>
-                                    </div>
-                                </div> <!-- skill item -->
-                                <div class="skill_item mt-20">
-                                    <div class="skill_header">
-                                        <h6 class="skill_title">Go lang</h6>
-                                        <div class="skill_percentage">
-                                            <p><span class="counter">65</span>%</p>
-                                        </div>
-                                    </div>
-                                    <div class="skill_bar">
-                                        <div class="bar_inner">
-                                            <div class="bar progress_line" data-width="65"></div>
-                                        </div>
-                                    </div>
-                                </div> <!-- skill item -->
-                                <div class="skill_item mt-20">
-                                    <div class="skill_header">
-                                        <h6 class="skill_title">Database</h6>
-                                        <div class="skill_percentage">
-                                            <p><span class="counter">75</span>%</p>
-                                        </div>
-                                    </div>
-                                    <div class="skill_bar">
-                                        <div class="bar_inner">
-                                            <div class="bar progress_line" data-width="75"></div>
-                                        </div>
-                                    </div>
-                                </div> <!-- skill item -->
-                                <div class="skill_item mt-20">
-                                    <div class="skill_header">
-                                        <h6 class="skill_title">Dev/Ops</h6>
-                                        <div class="skill_percentage">
-                                            <p><span class="counter">70</span>%</p>
-                                        </div>
-                                    </div>
-                                    <div class="skill_bar">
-                                        <div class="bar_inner">
-                                            <div class="bar progress_line" data-width="70"></div>
-                                        </div>
-                                    </div>
-                                </div> <!-- skill item -->
-                                <div class="skill_item mt-20">
-                                    <div class="skill_header">
-                                        <h6 class="skill_title">VueJS</h6>
-                                        <div class="skill_percentage">
-                                            <p><span class="counter">90</span>%</p>
-                                        </div>
-                                    </div>
-                                    <div class="skill_bar">
-                                        <div class="bar_inner">
-                                            <div class="bar progress_line" data-width="90"></div>
-                                        </div>
-                                    </div>
-                                </div> <!-- skill item -->
-                                <div class="skill_item mt-20">
-                                    <div class="skill_header">
-                                        <h6 class="skill_title">Laravel</h6>
-                                        <div class="skill_percentage">
-                                            <p><span class="counter">85</span>%</p>
-                                        </div>
-                                    </div>
-                                    <div class="skill_bar">
-                                        <div class="bar_inner">
-                                            <div class="bar progress_line" data-width="85"></div>
-                                        </div>
-                                    </div>
-                                </div> <!-- skill item -->
-
-                            </div> <!-- about skill -->
-                        </div> <!-- about content -->
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </section>
-
-        <section id="skills" class="call_to_action_area page-break">
-            <div class="container">
-                <div class="call_to_action_wrapper wow fadeIn" data-wow-duration="1.3s" data-wow-delay="0.5s">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="call_to_action_box d-md-flex justify-content-between align-items-center">
-                                <div class="call_to_action_content">
-                                    <h3 class="action_title">You are using free lite version of Freelancer</h3>
-                                    <ul class="line">
-                                        <li></li>
-                                        <li></li>
-                                        <li></li>
-                                    </ul>
-                                    <p>Please, purchase full version to get all elements, features, footer credit
-                                        removal
-                                        permission and commercial license</p>
-                                </div> <!-- call to action content -->
-
-                                <div class="call_to_action_btn">
-                                    <a href="https://rebrand.ly/freelancer-ud" rel="nofollow" class="main-btn">HIRE
-                                        ME</a>
-                                </div> <!-- call to action btn -->
-                            </div> <!-- call to action box -->
+                                </div>
+                            </div> -->
                         </div>
-                    </div> <!-- row -->
-                </div> <!-- call to action wrapper -->
-            </div> <!-- container -->
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <div id="img-viewer">
-            <span class="close" @click="close_model()">&times;</span>
-            <img class="modal-content" id="full-image" @click="close_model()">
-        </div>
-        <section id="project" class="services_area pt-80 pb-120 page-break">
-
+        <section id="skills" v-if="true" class="services_area pt-80 pb-120 print:break-before-page">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
                         <div class="section_title text-center pb-30">
-                            <!-- <h5 class="sub_title">Portfolio</h5> -->
+                            <h3 class="main_title">Skills</h3>
+                            <ul class="line">
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="flex flex-col w-full print:px-[50px]">
+                        <div class="about_skills pt-15" v-for="(skil,idx) in skills"
+                            :class="{'print:break-before-page  pt-80':idx==12}">
+
+                            <div class="row justify-content-center !hidden align-items-center"
+                                :class="{'!print:block !hidden': idx==12}">
+                                <div class="col-lg-6">
+                                    <div class="section_title text-center pb-30">
+                                        <h3 class="main_title">Skills</h3>
+                                        <ul class="line">
+                                            <li></li>
+                                            <li></li>
+                                            <li></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="skill_item mt-20">
+                                <div class="skill_header">
+                                    <h6 class="skill_title">{{skil.label}}</h6>
+                                    <div class="skill_percentage">
+                                        <p><span class="counter">{{skil.percen}}</span>%</p>
+                                    </div>
+                                </div>
+                                <div class="skill_bar">
+                                    <div class="bar_inner">
+                                        <div class="bar progress_line" :data-width="skil.percen"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <div id="img-viewer" v-if="true">
+            <span class="close" @click="close_model()">&times;</span>
+            <img class="modal-content cursor-pointer" id="full-image" @click="close_model()">
+        </div>
+
+        <section id="project" v-if="true" class="services_area pt-80 pb-120 print:break-before-page">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="section_title text-center pb-30">
                             <h3 class="main_title">Portfolio</h3>
                             <ul class="line">
                                 <li></li>
                                 <li></li>
                                 <li></li>
                             </ul>
-                        </div> <!-- section title -->
+                        </div>
                     </div>
-                </div> <!-- row -->
+                </div>
                 <div class="row">
-                    <div class="col-lg-4 col-sm-6">
+                    <div class="col-lg-4 col-sm-6" v-for="i in 16">
                         <div class="single_service mt-30 wow fadeInUpBig" data-wow-duration="1.3s"
                             data-wow-delay="0.2s">
                             <div class="service_content">
-                                <img src="/assets/images//protfolio/p1.png"
-                                    @click="full_view('/assets/images//protfolio/p1.png');" />
+                                <img :src="'/assets/images//protfolio/p'+i+'.png'" class="cursor-pointer"
+                                    @click="full_view('/assets/images//protfolio/p'+i+'.png');" />
                             </div>
-                        </div> <!-- single service -->
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="single_service mt-30 wow fadeInUpBig" data-wow-duration="1.3s"
-                            data-wow-delay="0.2s">
-                            <div class="service_content">
-                                <img src="/assets/images//protfolio/p2.png"
-                                    @click="full_view('/assets/images//protfolio/p2.png');" />
-                            </div>
-                        </div> <!-- single service -->
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="single_service mt-30 wow fadeInUpBig" data-wow-duration="1.3s"
-                            data-wow-delay="0.5s">
-                            <div class="service_content">
-                                <img src="/assets/images//protfolio/p3.png"
-                                    @click="full_view('/assets/images//protfolio/p3.png');" />
-                            </div>
-                        </div> <!-- single service -->
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="single_service mt-30 wow fadeInUpBig" data-wow-duration="1.3s"
-                            data-wow-delay="0.8s">
-                            <div class="service_content">
-                                <img src="/assets/images//protfolio/p4.png"
-                                    @click="full_view('/assets/images//protfolio/p4.png');" />
-                            </div>
-                        </div> <!-- single service -->
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="single_service mt-30 wow fadeInUpBig" data-wow-duration="1.3s"
-                            data-wow-delay="0.2s">
-                            <div class="service_content">
-                                <img src="/assets/images//protfolio/p5.png"
-                                    @click="full_view('/assets/images//protfolio/p5.png');" />
-                            </div>
-                        </div> <!-- single service -->
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="single_service mt-30 wow fadeInUpBig" data-wow-duration="1.3s"
-                            data-wow-delay="0.5s">
-                            <div class="service_content">
-                                <img src="/assets/images//protfolio/p6.png"
-                                    @click="full_view('/assets/images//protfolio/p6.png');" />
-                            </div>
-                        </div> <!-- single service -->
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="single_service mt-30 wow fadeInUpBig" data-wow-duration="1.3s"
-                            data-wow-delay="0.8s">
-                            <div class="service_content">
-                                <img src="/assets/images//protfolio/p9.png"
-                                    @click="full_view('/assets/images//protfolio/p9.png');" />
-                            </div>
-                        </div> <!-- single service -->
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="single_service mt-30 wow fadeInUpBig" data-wow-duration="1.3s"
-                            data-wow-delay="0.8s">
-                            <div class="service_content">
-                                <img src="/assets/images//protfolio/p7.png"
-                                    @click="full_view('/assets/images//protfolio/p7.png');" />
-                            </div>
-                        </div> <!-- single service -->
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="single_service mt-30 wow fadeInUpBig" data-wow-duration="1.3s"
-                            data-wow-delay="0.8s">
-                            <div class="service_content">
-                                <img src="/assets/images//protfolio/p8.png"
-                                    @click="full_view('/assets/images//protfolio/p8.png');" />
-                            </div>
-                        </div> <!-- single service -->
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
+                </div>
+            </div>
         </section>
 
 
-        <section id="education" class="call_to_action_area page-break">
+
+        <section id="contact" v-if="false" class="call_to_action_area page-break">
             <div class="container">
                 <div class="call_to_action_wrapper wow fadeIn" data-wow-duration="1.3s" data-wow-delay="0.5s">
                     <div class="row">
@@ -552,67 +441,130 @@
         </section>
 
 
-        <section id="contact" class="call_to_action_area page-break">
+        <section id="work" v-if="true" class="work_experience_area print:mt-[50px] print:break-before-page">
             <div class="container">
-                <div class="call_to_action_wrapper wow fadeIn" data-wow-duration="1.3s" data-wow-delay="0.5s">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="call_to_action_box d-md-flex justify-content-between align-items-center">
-                                <div class="call_to_action_content">
-                                    <h3 class="action_title">You are using free lite version of Freelancer</h3>
-                                    <ul class="line">
-                                        <li></li>
-                                        <li></li>
-                                        <li></li>
-                                    </ul>
-                                    <p>Please, purchase full version to get all elements, features, footer credit
-                                        removal
-                                        permission and commercial license</p>
-                                </div> <!-- call to action content -->
-
-                                <div class="call_to_action_btn">
-                                    <a href="https://rebrand.ly/freelancer-ud" rel="nofollow" class="main-btn">HIRE
-                                        ME</a>
-                                </div> <!-- call to action btn -->
-                            </div> <!-- call to action box -->
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="section_title text-center pb-30">
+                            <!-- <h5 class="sub_title">Experience</h5> -->
+                            <h4 class="main_title whitespace-nowrap">Work Experience</h4>
+                            <ul class="line">
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
                         </div>
-                    </div> <!-- row -->
-                </div> <!-- call to action wrapper -->
-            </div> <!-- container -->
+                    </div>
+                </div>
+                <div class="work_experience">
+                    <div class="row my-8 px-4 print:break-after-auto" v-for="(exp,idx) in experiences">
+                        <div class="w-full">
+                            <div class="single_experience flex flex-row justify-center align-items-center flex-nowrap wow fadeIn"
+                                :class="{'flex-row-reverse': idx%2==0}" data-wow-duration="1.3s" data-wow-delay="0.2s">
+                                <div class="experience_content min-w-3/7 max-w-[calc(100%/2-100px)]">
+                                    <p class="" :class="{'text-left': idx%2==0, 'text-right': idx%2!=0}">
+                                        {{exp.desc}}</p>
+                                </div>
+                                <div class="experience_number min-w-[100px]  w-1/7 max-w-[100px] z-10">
+                                    <span>0{{idx+1}}</span>
+                                </div>
+                                <div class="min-w-3/7 max-w-[calc(100%/2-100px)] flex flex-col"
+                                    :class="{'items-end': idx%2==0,'items-start': idx%2!=0}">
+                                    <h3 class="title" :class="{'text-right': idx%2==0, 'text-left': idx%2!=0}">
+                                        {{exp.label}}</h3>
+                                    <p>{{exp.company}}</p>
+                                    <span class="date">{{exp.date}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="text-center">Total Working Programmer 12 Years</h5>
+                </div>
+
+                <div class="work_experience_area w-full print:mt-[50px] print:break-before-page" v-if="false">
+                    <div class="work_experience">
+                        <div class="row my-8 px-4 " v-for="i in 4">
+                            <div class="w-full">
+                                <div class="single_experience flex flex-row justify-center align-items-center flex-nowrap wow fadeIn"
+                                    :class="{'flex-row-reverse': i%2==0}" data-wow-duration="1.3s"
+                                    data-wow-delay="0.2s">
+                                    <div class="min-w-3/7 max-w-[calc(100%/2-100px)]">
+                                        <p class="px-8 " :class="{'float-left': i%2==0, 'float-right': i%2!=0}">Lorem
+                                            ipsum
+                                            dolor sit amet, consetetur sadipscing elitr sedia
+                                            magnaliquya ratsed diam
+                                            Lorem ipsum dolor sit amconsetetur sadipscing elitr sed diam
+                                            nonumy eirmod
+                                            tempor invidunt ut laboreet dolore
+                                            magna aliquyam erat sed diam.Lorem ipsum dolor sit
+                                            ametconsete tur sadipscing
+                                            elitr sed diam nonumy
+                                            eirmod tempor invidunt ut labore et dolore magna aliquyam
+                                            erat sed diamLorem
+                                            ipsum dolor consetetur
+                                            sadipscing elitr sed diam nonumy diam...
+                                        </p>
+                                    </div>
+                                    <div class="experience_number min-w-[100px]  w-1/7 max-w-[100px] z-10">
+                                        <span>0{{i+4}}</span>
+                                    </div>
+                                    <div class="min-w-3/7 max-w-[calc(100%/2-100px)] flex flex-col">
+                                        <h3 class="title">Graphic Designer</h3>
+                                        <p>PageBulb</p>
+                                        <span class="date">March 2019- August 2024</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-
-        <section id="work" class="call_to_action_area page-break">
+        <section id="education" v-if="true"
+            class="work_experience_area pt-[100px] print:mt-[50px] print:break-before-page">
             <div class="container">
-                <div class="call_to_action_wrapper wow fadeIn" data-wow-duration="1.3s" data-wow-delay="0.5s">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="call_to_action_box d-md-flex justify-content-between align-items-center">
-                                <div class="call_to_action_content">
-                                    <h3 class="action_title">You are using free lite version of Freelancer</h3>
-                                    <ul class="line">
-                                        <li></li>
-                                        <li></li>
-                                        <li></li>
-                                    </ul>
-                                    <p>Please, purchase full version to get all elements, features, footer credit
-                                        removal
-                                        permission and commercial license</p>
-                                </div> <!-- call to action content -->
-
-                                <div class="call_to_action_btn">
-                                    <a href="https://rebrand.ly/freelancer-ud" rel="nofollow" class="main-btn">HIRE
-                                        ME</a>
-                                </div> <!-- call to action btn -->
-                            </div> <!-- call to action box -->
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="section_title text-center pb-30">
+                            <h5 class="sub_title">Education</h5>
+                            <h3 class="main_title">Education</h3>
+                            <ul class="line">
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
                         </div>
-                    </div> <!-- row -->
-                </div> <!-- call to action wrapper -->
-            </div> <!-- container -->
+                    </div>
+                </div>
+                <div class="work_experience">
+                    <div class="row my-8 px-4 print:break-after-auto" v-for="(edu,idx ) in educations">
+                        <div class="w-full">
+                            <div class="single_experience flex flex-row justify-center align-items-center flex-nowrap wow fadeIn"
+                                :class="{'flex-row-reverse': idx%2==0}" data-wow-duration="1.3s" data-wow-delay="0.2s">
+                                <div class="min-w-3/7 max-w-[calc(100%/2-100px)]">
+                                    <p class="px-8 " :class="{'float-left': idx%2==0, 'float-right': idx%2!=0}">
+                                        {{edu.desc}}
+                                </div>
+                                <div class="experience_number min-w-[100px]  w-1/7 max-w-[100px] z-10">
+                                    <span>0{{idx+1}}</span>
+                                </div>
+                                <div class="min-w-3/7 max-w-[calc(100%/2-100px)] flex flex-col"
+                                    :class="{'items-end': idx%2==0}">
+                                    <h3 class="title">{{edu.label}}</h3>
+                                    <span class="date">{{edu.date}}</span>
+                                    <p>{{edu.school}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-
-        <footer id="footer" class="footer_area gray-bg pt-115 pb-120">
+        <footer id="footer" class="footer_area gray-bg pt-115 pb-120 print:fixed print:buttom-0">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -634,21 +586,32 @@
                                             class="lni lni-github"></i></a>
                                 </li>
                             </ul>
-                            <span class="email !text-[30px]">limweb@hotmail.com</span>
+                            <a href="mailto:limweb@hotmail.com" class="email !text-[30px]">limweb@hotmail.com</a>
                             <ul class="footer_menu">
-                                <li><a href="#home">Home</a></li>
-                                <li><a href="#about">About Me</a></li>
-                                <li><a href="#skills">Skills</a></li>
-                                <li><a href="#project">Portfolio</a></li>
-                                <li><a href="#education">Education</a></li>
-                                <li><a href="#work">Experience</a></li>
+                                <li><a class="page-scroll" href="#home">Home</a></li>
+                                <li><a class="page-scroll" href="#about">About Me</a></li>
+                                <li><a class="page-scroll" href="#skills">Skills</a></li>
+                                <li><a class="page-scroll" href="#project">Portfolio</a></li>
+                                <li><a class="page-scroll" href="#education">Education</a></li>
+                                <li><a class="page-scroll" href="#work">Experience</a></li>
+
                             </ul>
-                            <p class="credit pt-45">Template Designed and Developed by <a href="https://uideck.com/"
-                                    rel="nofollow">UIdeck</a></p>
+                            <!-- <p class="credit pt-45">Template Designed and Developed by <a href="https://uideck.com/"  rel="nofollow">UIdeck</a></p> -->
                         </div> <!-- footer content -->
                     </div>
                 </div> <!-- row -->
             </div> <!-- container -->
+            <button type="button" data-twe-ripple-init data-twe-ripple-color="light" class="!fixed bottom-5 end-5 rounded-full bg-green-600 p-3 text-xs font-medium uppercase leading-tight
+                 text-white shadow-sm transition duration-150 ease-in-out hover:bg-green-700 hover:shadow-lg 
+                 focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 
+                 active:bg-green-800 active:shadow-lg" id="btn-back-to-top" @click="gotoTop">
+                <span class="[&>svg]:w-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
+                    </svg>
+                </span>
+            </button>
         </footer>
     </div>
     <!--
@@ -663,33 +626,179 @@
     </section>
 -->
 
-    <!--====== Jquery js ======-->
     <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
     <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
-
-    <!--====== Bootstrap js ======-->
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
-
-
-    <!--====== Appear js ======-->
     <script src="assets/js/jquery.appear.min.js"></script>
-
-    <!--====== Scrolling Nav js ======-->
     <script src="assets/js/jquery.easing.min.js"></script>
     <script src="assets/js/scrolling-nav.js"></script>
-
-    <!--====== Main js ======-->
     <script src="assets/js/main.js"></script>
-
     <script type="text/javascript">
         var vm = new Vue({
             mixins: [],
             data() {
-                return {}
+                return {
+                    experiences: [{
+                            label: 'IT Support/System Engineer ',
+                            desc: `Network Lan System Router Accounting System Server Setup Program for Used`,
+                            date: '2540-2554',
+                            company: 'Servit Co.,Ltd',
+                        },
+                        {
+                            label: 'Developer',
+                            desc: `Flex Action Script Java Project of Big C Jumbo Mackro Web application using Action
+                            Script Flex and Java JBA Tomcat`,
+                            date: '2554-2555',
+                            company: 'Aspiron Co.,Ltd.',
+                        },
+                        {
+                            label: 'Developer',
+                            desc: `PHP WordPress JavaScript PHP Api System Ecommerce System for Member`,
+                            date: '2555-2561',
+                            company: 'Tomato Ideas Co.,Ltd.',
+                        },
+                        {
+                            label: 'System Engineer & Senior Developer',
+                            desc: `Vuejs / Reactjs Docker AWS Cloud PHP Event Registration System DevOps CI/CD Load Test
+                            MFU local Mall Ecommerce System ImporterList System for DITP, Trad Regis System for DITP,
+                            MyTime System for DITP applications using Nodejs MongoDb and React `,
+                            date: '2561-2565',
+                            company: 'Eventpass Co.,Ltd.',
+                        },
+                        {
+                            label: 'Frontend Developer',
+                            desc: `e-LAAS is a web application for the fiscal operations of local governments. To demonstrate
+                            the true financial status of
+                            the local authorities on a daily basis.
+                            - develop e-LAAS web application using vue3, tailwind css, typescript, axios rxjs
+                            - thaiid card reader write golang
+                            - edc payment device with web serail api`,
+                            date: '2565-2567',
+                            company: '3i Infotech Limited',
+                        },
+                    ],
+                    skills: [{
+                            label: 'HTML',
+                            percen: '80'
+                        },
+                        {
+                            label: 'CSS Bootstrap Tailwind Windi Uno Css',
+                            percen: '75'
+                        },
+                        {
+                            label: 'JavaScript / TypeScript',
+                            percen: '75'
+                        },
+                        {
+                            label: 'Vue/ Nuxt Js V2 V3 ESM',
+                            percen: '85'
+                        },
+                        {
+                            label: 'DevOps/GitOps Docker Jenkins CI/CD',
+                            percen: '80'
+                        },
+                        {
+                            label: 'Network LAN / Cloud System /RDP /VPS APACHE NGINX CADDY',
+                            percen: '80'
+                        },
+                        {
+                            label: 'NODE JS/ BUN',
+                            percen: '80'
+                        },
+                        {
+                            label: 'PHP / LARAVEL / API',
+                            percen: '90'
+                        },
+                        {
+                            label: 'PYTHON / AI',
+                            percen: '70'
+                        },
+                        {
+                            label: 'Go Lang API / IOT ',
+                            percen: '75'
+                        },
+                        {
+                            label: '.NetCore API',
+                            percen: '75'
+                        },
+                        {
+                            label: 'Rust Lang API',
+                            percen: '50'
+                        },
+                        {
+                            label: 'Java Spring Boot API',
+                            percen: '40'
+                        },
+                        {
+                            label: 'Docker ',
+                            percen: '80'
+                        },
+                        {
+                            label: 'Aws Cloud DigitalOcean Google Cloud Azure',
+                            percen: '80'
+                        },
+                        {
+                            label: 'Database MySql/MariaDb MSSQL Postgresql Oracle SurrealDb',
+                            percen: '80'
+                        },
+                        {
+                            label: 'Accounting Express ERPNEXT',
+                            percen: '85'
+                        },
+                        {
+                            label: 'Chinese Language',
+                            percen: '75'
+                        },
+                        {
+                            label: 'English Language',
+                            percen: '65'
+                        },
+                        // {
+                        //     label: '',
+                        //     percen: ''
+                        // },
+                    ],
+                    educations: [
+                        // {
+                        //     label: 'ประถม',
+                        //     desc: 'xxxxx',
+                        //     date: '4 Year',
+                        //     school: 'โรงเรียน วุฒิวิทยา'
+                        // },
+                        // {
+                        //     label: 'มันธยม',
+                        //     desc: 'xxxxx',
+                        //     date: '6 Year',
+                        //     school: 'โรงเรียน เทพลีลม'
+                        // },
+                        {
+                            label: 'University',
+                            desc: `Bachelor's degree in Accounting Management`,
+                            date: '4 Year',
+                            school: 'Huachiew university'
+                        },
+                    ]
+
+                }
             },
             el: '#app',
             methods: {
+                gotoTop() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    })
+                },
+                printx() {
+                    window.scrollTo({
+                        top: document.body.scrollHeight,
+                        behavior: 'smooth'
+                    })
+                    setTimeout(() => {
+                        window.print();
+                    }, 2000)
+                },
                 full_view(src) {
                     document.querySelector("#img-viewer").querySelector("img").setAttribute("src", src);
                     document.querySelector("#img-viewer").style.display = "block";
@@ -703,16 +812,34 @@
             watch: {},
             components: {},
             beforeCreate() {},
-            created() {},
+            created() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                })
+            },
             beforeMount() {},
-            mounted() {},
+            mounted() {
+                // window.scrollTo({
+                //     top: document.body.scrollHeight,
+                //     behavior: 'smooth'
+                // })
+                if ($('.progress_line').length) {
+                    $('.progress_line').appear(function () {
+                        var el = $(this);
+                        var percent = el.data('width');
+                        $(el).css('width', percent + '%');
+                    }, {
+                        accY: 0
+                    });
+                }
+            },
             beforeUpdate() {},
             updated() {},
             beforeDestroy() {},
             destroyed() {},
         })
     </script>
-
 </body>
 
 </html>
