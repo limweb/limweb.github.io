@@ -43,16 +43,21 @@ $(function () {
     //===== close navbar-collapse when a  clicked
 
     $(".navbar-nav a").on('click', function () {
+        console.log('-ktb-1----------->',1)
         $(".navbar-collapse").removeClass("show");
     });
 
-    $(".navbar-toggler").on('click', function () {
-        $(this).toggleClass("active");
-    });
-
     $(".navbar-nav a").on('click', function () {
+        console.log('-ktb-3----------->',3)
         $(".navbar-toggler").removeClass('active');
     });    
+
+
+    $(".navbar-toggler").on('click', function () {
+        console.log('-ktb-2----------->',2)
+        $(this).toggleClass("active");
+    });
+    
 
 
     ///===== Progress Bar
