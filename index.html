@@ -269,7 +269,7 @@
         <section id="about" v-if="true" class="about_area pb-120 page-break h-screen hidden print:block ">
             <div class="container px-8  h-screen">
                 <div class="row align-items-center justify-content-center justify-center px-8 flex flex-col h-full">
-                    <img src="assets/images/Picture1.jpg" alt="hero"
+                    <img src="assets/images/Picture1.png" alt="hero"
                         class="rounded-full shadow-gray-500 w-[500px] h-[500px] shadow-sm rounded-3xl ">
                     <div class="w-full text-center text-2xl font-bold">Thongchai Lim</div>
                     <div class="w-full text-center">
@@ -562,6 +562,8 @@
                                 <li><a class="page-scroll" href="#project">Portfolio</a></li>
                                 <li><a class="page-scroll" href="#education">Education</a></li>
                                 <li><a class="page-scroll" href="#work">Experience</a></li>
+                                <li><a class="page-scroll" @click.prevent="printx()" href="#home">MyCV( พิมพ์
+                                        Online)</a></li>
 
                             </ul>
                             <!-- <p class="credit pt-45">Template Designed and Developed by <a href="https://uideck.com/"  rel="nofollow">UIdeck</a></p> -->
