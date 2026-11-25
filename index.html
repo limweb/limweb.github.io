@@ -337,7 +337,7 @@
             </div>
         </section>
 
-        <section id="work" v-if="true" class="work_experience_area print:mt-[50px] print:break-before-page">
+        <section id="work" v-if="true" class="work_experience_area print:mt-[20px] print:break-before-page">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
@@ -353,7 +353,7 @@
                     </div>
                 </div>
                 <div class="work_experience">
-                    <div class="row my-8 px-4 print:break-after-auto" v-for="(exp,idx) in experiences">
+                    <div class="row my-8 px-4 print:my-3 print:break-after-auto" v-for="(exp,idx) in experiences">
                         <div class="w-full">
                             <div class="single_experience flex flex-row justify-center align-items-center flex-nowrap wow fadeIn"
                                 :class="{'flex-row-reverse': idx%2==0}" data-wow-duration="1.3s" data-wow-delay="0.2s">
